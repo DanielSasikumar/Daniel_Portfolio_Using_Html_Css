@@ -1,0 +1,319 @@
+/* 🌙 Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* 🎨 Dark Mode Color Palette */
+:root {
+    --primary-color: #6b7df2;
+    --secondary-color: #a8a6fc;
+    --background-color: #111;
+    --card-bg: #1a1a2e;
+    --text-color: #ddd;
+    --border-color: #333;
+    --hover-glow: rgba(109, 122, 255, 0.7);
+}
+
+/* 🌑 Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+}
+
+/* 📌 Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* 🔥 Header */
+header {
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    padding: 100px 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 4px solid transparent;
+    border-image: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-image-slice: 1;
+}
+
+header h1 {
+    font-size: clamp(2.5em, 5vw, 4em);
+    font-weight: bold;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: neonGlow 1.5s infinite alternate;
+    text-shadow: 0 0 15px var(--primary-color), 0 0 30px var(--primary-color), 0 0 45px var(--primary-color), 0 0 60px var(--primary-color);
+}
+
+header p {
+    font-size: clamp(1em, 3vw, 1.4em);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* 🎨 Animated Floating Dots */
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(107, 125, 242, 0.2) 10%, transparent 70%);
+    animation: floatingDots 6s infinite linear;
+    opacity: 0.6;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+}
+
+/* 📌 Responsive Navigation */
+nav {
+    background: #222;
+    padding: 15px 0;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+nav::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: var(--primary-color);
+    transition: width 0.3s ease, left 0.3s ease;
+    transform: translateX(-50%);
+}
+
+/* Navigation Links */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 10px 20px;
+    position: relative;
+}
+
+/* Neon Underline on Hover */
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 500;
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+    text-shadow: 0px 0px 10px var(--primary-color), 0px 0px 20px var(--primary-color), 0px 0px 30px var(--primary-color);
+    transform: scale(1.1);
+}
+
+nav ul li a:hover::before {
+    width: 100%;
+}
+
+/* Neon Glow Border Effect on Active Link */
+nav ul li a.active {
+    color: var(--primary-color);
+    text-shadow: 0px 0px 10px var(--primary-color), 0px 0px 20px var(--primary-color), 0px 0px 30px var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* Hover Effect on Navigation Items */
+nav ul li:hover a {
+    text-shadow: 0px 0px 20px var(--primary-color), 0px 0px 30px var(--primary-color), 0px 0px 40px var(--primary-color);
+}
+
+/* Hover Glow Effect for Navbar */
+nav:hover {
+    background: #222;
+    box-shadow: 0 10px 20px rgba(107, 122, 255, 0.4);
+}
+
+nav ul li:hover::before {
+    width: 100%;
+    background: var(--primary-color);
+}
+
+nav::after:hover {
+    width: 100%;
+    left: 0;
+}
+
+/* 🔹 Sections */
+section {
+    padding: 80px 5%;
+    text-align: center;
+}
+
+/* 💡 About Section */
+#about {
+    background: var(--card-bg);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 40px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+#about:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(107, 122, 255, 0.7);
+    border: 2px solid var(--primary-color);
+}
+
+/* 🚀 Skills Section */
+#skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+#skills ul li {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 1.1em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#skills ul li:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(107, 122, 255, 0.7);
+}
+
+/* 🎯 Projects Section */
+#projects .project {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    margin: 20px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#projects .project:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(107, 122, 255, 0.7);
+    border: 2px solid var(--primary-color);
+}
+
+/* ✉ Contact Section */
+#contact {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px var(--hover-glow);
+}
+
+/* 📌 Footer */
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ⚡ Responsive Buttons */
+button {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(107, 122, 255, 0.7);
+    text-shadow: 0px 0px 15px var(--primary-color), 0px 0px 30px var(--primary-color);
+}
+
+/* 🌀 Animations */
+@keyframes floatingDots {
+    0% { transform: translate(-50%, -50%) rotate(0deg); opacity: 0.6; }
+    50% { opacity: 0.9; }
+    100% { transform: translate(-50%, -50%) rotate(360deg); opacity: 0.6; }
+}
+
+@keyframes neonGlow {
+    0% { text-shadow: 0px 0px 10px rgba(107, 125, 242, 0.8); }
+    100% { text-shadow: 0px 0px 20px rgba(168, 166, 252, 1); }
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 992px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    section {
+        padding: 60px 5%;
+    }
+
+    .project {
+        margin: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 80px 0; 
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p { 
+        font-size: 1em;
+    }
+
+    section {
+        padding: 50px 5%;
+    }
+
+    #skills ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
